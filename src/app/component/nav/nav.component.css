@@ -1,0 +1,13 @@
+div{
+    text-size-adjust: 0px;
+    font-size: medium;
+}
+a {
+
+    color: rgb(245, 245, 245);
+    background-color: transparent;
+    text-decoration: none;
+    text-decoration: solid;
+    font-size: 20px
+
+  }

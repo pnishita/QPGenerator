@@ -1,0 +1,28 @@
+.generator-container {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.questions-list {
+  margin-top: 20px;
+}
+
+.questions-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.questions-list li {
+  margin-bottom: 5px;
+}

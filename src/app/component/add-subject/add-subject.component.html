@@ -1,0 +1,15 @@
+<div class="add-subject-form">
+  <form [formGroup]="subjectForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name"><h3>Subject Name</h3></label>
+      <input id="name" formControlName="name" type="text" class="form-control" />
+      <div *ngIf="subjectForm.get('name')?.invalid && subjectForm.get('name')?.touched" class="text-danger">
+        Subject name is required
+      </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-primary add-button" [disabled]="subjectForm.invalid">Add Subject</button>
+  </form>
+  <BR>
+</div>

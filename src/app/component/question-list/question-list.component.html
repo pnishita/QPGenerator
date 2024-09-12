@@ -1,0 +1,72 @@
+<div class="container">
+  <br>
+  <div class="question-table-section">
+    <h3>Questions List</h3>
+    <button class="add-button btn btn-primary" (click)="toggleAddQuestion()">Add Question</button>&nbsp;&nbsp;
+    <button class="add-button2 btn btn-primary" (click)="toggleAddJson()">Add JSON</button>
+    <br>
+    <div class="question-table-wrapper">
+      <table class="question-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Question Text</th>
+            <th>Option A</th>
+            <th>Option B</th>
+            <th>Option C</th>
+            <th>Option D</th>
+            <th>Answer</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of questions; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ question.questionText }}</td>
+            <td>{{ question.optionA }}</td>
+            <td>{{ question.optionB }}</td>
+            <td>{{ question.optionC }}</td>
+            <td>{{ question.optionD }}</td>
+            <td>{{ question.correctAnswer }}</td>
+            <td>
+              <button (click)="deleteQuestion(question.id)" class="btn btn-danger">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="add-question-banner" *ngIf="showAddQuestion">
+    <h3>Add a New Question</h3>
+    <form [formGroup]="questionForm" (ngSubmit)="addQuestion()">
+ 
+      <label for="questionText">Question Text:</label>
+      <input id="questionText" formControlName="questionText">
+      <label for="optionA">Option A:</label>
+      <input id="optionA" formControlName="optionA">
+      <label for="optionB">Option B:</label>
+      <input id="optionB" formControlName="optionB">
+      <label for="optionC">Option C:</label>
+      <input id="optionC" formControlName="optionC">
+      <label for="optionD">Option D:</label>
+      <input id="optionD" formControlName="optionD">
+      <label for="correctAnswer">Correct Answer:</label>
+      <input id="correctAnswer" formControlName="correctAnswer">
+      <button type="submit" [disabled]="questionForm.invalid">Add Question</button>
+      <button type="button" (click)="toggleAddQuestion()">Cancel</button>
+    </form>
+  </div>
+
+
+  <div class="add-json-banner" *ngIf="showAddJson">
+    <h3>Add Questions via JSON</h3>
+    <form (ngSubmit)="addJson()">
+      <label for="jsonInput">JSON Data:</label>
+      <textarea id="jsonInput" [(ngModel)]="jsonInput" name="jsonInput"></textarea>
+      <button type="submit">Add JSON</button>&nbsp;&nbsp;
+      <button type="button" (click)="toggleAddJson()">Cancel</button>
+    </form>
+  </div>
+</div>

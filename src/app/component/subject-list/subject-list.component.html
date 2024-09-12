@@ -1,0 +1,61 @@
+<!-- <div class="container mt-4">
+  <div class="row">
+   
+    <div class="col-md-6">
+      <h2>Subjects</h2>
+      <div class="list-group">
+        <a *ngFor="let subject of subjects" (click)="onSubjectClick(subject.subjectId)" class="list-group-item list-group-item-action">
+          {{ subject.name }}
+        </a>
+      </div>
+    </div>
+
+   
+    <div class="col-md-6">
+      <button class="btn btn-primary" (click)="toggleAddSubject()">Add Subject</button>
+      
+      <div *ngIf="showAddSubject">
+        <app-add-subject (subjectAdded)="onSubjectAdded($event)"></app-add-subject>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Subjects</h2>
+      <button class="btn btn-primary mb-3" (click)="toggleAddSubject()">
+        {{ showAddSubject ? 'Cancel' : 'Add Subject' }}
+      </button>
+
+   
+      <div *ngIf="showAddSubject">
+        <app-add-subject (subjectAdded)="onSubjectAdded($event)"></app-add-subject>
+      </div>
+
+      <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let subject of subjects">
+              <td>{{ subject.subjectId }}</td>
+              <td>{{ subject.name }}</td>
+              
+              <td>
+                <button class="btn btn-info" (click)="onSubjectClick(subject.subjectId)">
+                  View Questions
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
